@@ -1,0 +1,28 @@
+\hypertarget{index_Project}{}\doxysection{Information}\label{index_Project}
+This monitor allows for the user to query certain aspects of the system in real time. The current supported queries are\+: Display/\+Set time, Display/\+Set date, Set/\+Clear alarm. This monitor uses interrupts to fetch user data and to keep track of time, making it \char`\"{}interrupt-\/driven\char`\"{}.\hypertarget{index_Communications}{}\doxysection{Communications}\label{index_Communications}
+Monitor communicates with the user via U\+A\+RT, which can be accessed by a computer via a Serial C\+OM port and an emulated terminal program like Pu\+T\+TY.\hypertarget{index_Serial}{}\doxysubsection{Port Settings}\label{index_Serial}
+
+\begin{DoxyItemize}
+\item 115200 baud rate,
+\item 8 data bits,
+\item 1 stop bit,
+\item NO parity,
+\item NO flow control.
+\end{DoxyItemize}
+
+Check device manager (or equivalent) to see which C\+OM port the board is connected to.
+\begin{DoxyItemize}
+\item Name of board is \char`\"{}\+Stellaris Virtual Serial Port\char`\"{}
+\end{DoxyItemize}
+
+It is also recommended that you enable implicit CR in every LR \& implicit LR in every CR on your terminal settings.\hypertarget{index_Queries}{}\doxysection{Queries}\label{index_Queries}
+All query entries are case insensitive. Keep in mind the format of the \textquotesingle{}set\textquotesingle{} queries (the time seperators are different from the date seperators).
+
+Display Time Query\+: $<$time$>$. ~\newline
+ Set Time Query\+: $<$time hh\+:mm\+:ss.\+t$>$. (all values are decimal)
+
+Display Date Query\+: $<$date$>$. ~\newline
+ Set Date Query\+: $<$date dd-\/\char`\"{}mmm\char`\"{}-\/yyyy$>$. (days and years are decimal values, month is the first three letters of the month)
+
+Clear alarm Query\+: $<$alarm$>$. ~\newline
+ Set Alarm Query\+: $<$alarm hh\+:mm\+:ss.\+t$>$ (all values are decimal) 

@@ -1,0 +1,181 @@
+\hypertarget{systick_8h}{}\doxysection{drivers/includes/systick.h File Reference}
+\label{systick_8h}\index{drivers/includes/systick.h@{drivers/includes/systick.h}}
+
+
+Contains all the definitions, structures, and function prototypes regarding the operation of the Sys\+Tick driver.  
+
+
+{\ttfamily \#include \char`\"{}cpu.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsystick__counter__}{systick\+\_\+counter\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Sys\+Tick counter structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structsystick__countdown__}{systick\+\_\+countdown\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Sys\+Tick countdown structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structsystick__descriptor__}{systick\+\_\+descriptor\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Sys\+Tick driver descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{systick_8h_aa02636eca67c769d787b3634c4320f22}\label{systick_8h_aa02636eca67c769d787b3634c4320f22}} 
+\#define {\bfseries S\+T\+\_\+\+C\+T\+R\+L\+\_\+R}~($\ast$((volatile unsigned long $\ast$)0x\+E000\+E010))
+\item 
+\mbox{\Hypertarget{systick_8h_a089999dcf960f439cee6d819bd37438b}\label{systick_8h_a089999dcf960f439cee6d819bd37438b}} 
+\#define {\bfseries S\+T\+\_\+\+R\+E\+L\+O\+A\+D\+\_\+R}~($\ast$((volatile unsigned long $\ast$)0x\+E000\+E014))
+\item 
+\mbox{\Hypertarget{systick_8h_a98af4ad1005e0b2d3c0452413adbd134}\label{systick_8h_a98af4ad1005e0b2d3c0452413adbd134}} 
+\#define {\bfseries S\+T\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+R}~($\ast$((volatile unsigned long $\ast$)0x\+E000\+E018))
+\item 
+\mbox{\Hypertarget{systick_8h_a4c7133456b746832dd2c6a52c097593b}\label{systick_8h_a4c7133456b746832dd2c6a52c097593b}} 
+\#define {\bfseries S\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+O\+U\+NT}~0x00010000
+\item 
+\mbox{\Hypertarget{systick_8h_a01969a340c9efbe2f03e8d1fce4812d3}\label{systick_8h_a01969a340c9efbe2f03e8d1fce4812d3}} 
+\#define {\bfseries S\+T\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+K\+\_\+\+S\+RC}~0x00000004
+\item 
+\mbox{\Hypertarget{systick_8h_ad8cefe702b7c214d84718d64c6149ba5}\label{systick_8h_ad8cefe702b7c214d84718d64c6149ba5}} 
+\#define {\bfseries S\+T\+\_\+\+C\+T\+R\+L\+\_\+\+I\+N\+T\+EN}~0x00000002
+\item 
+\mbox{\Hypertarget{systick_8h_a0a2f91ae597c59a48def2f016250658d}\label{systick_8h_a0a2f91ae597c59a48def2f016250658d}} 
+\#define {\bfseries S\+T\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+A\+B\+LE}~0x00000001
+\item 
+\mbox{\Hypertarget{systick_8h_a41b0180f12af925ed6e81a3566c0e448}\label{systick_8h_a41b0180f12af925ed6e81a3566c0e448}} 
+\#define {\bfseries M\+A\+X\+\_\+\+W\+A\+IT}~0x1000000   /$\ast$ 2$^\wedge$24 $\ast$/
+\item 
+\mbox{\Hypertarget{systick_8h_a468a052866d6751d05f1a00ad172fbe8}\label{systick_8h_a468a052866d6751d05f1a00ad172fbe8}} 
+\#define {\bfseries S\+E\+C\+\_\+\+T\+I\+CK}~F\+\_\+\+C\+P\+U\+\_\+\+C\+LK
+\item 
+\mbox{\Hypertarget{systick_8h_a43256a27e6dc6077da3204c7c380417a}\label{systick_8h_a43256a27e6dc6077da3204c7c380417a}} 
+\#define {\bfseries M\+S\+E\+C\+\_\+\+T\+I\+CK}~(F\+\_\+\+C\+P\+U\+\_\+\+C\+LK/1000)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structsystick__counter__}{systick\+\_\+counter\+\_\+}} \mbox{\hyperlink{systick_8h_a03e66aa88c31a46ef1b908b90a36ceb0}{systick\+\_\+counter\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Sys\+Tick counter structure. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structsystick__countdown__}{systick\+\_\+countdown\+\_\+}} \mbox{\hyperlink{systick_8h_af9064247c65376cd0bad099a63a43596}{systick\+\_\+countdown\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Sys\+Tick countdown structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{systick_8h_ae09db1f564b25246229753e4d125b58b}\label{systick_8h_ae09db1f564b25246229753e4d125b58b}} 
+typedef struct \mbox{\hyperlink{structsystick__descriptor__}{systick\+\_\+descriptor\+\_\+}} \mbox{\hyperlink{systick_8h_ae09db1f564b25246229753e4d125b58b}{systick\+\_\+descriptor\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Sys\+Tick driver descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{systick_8h_a966e8d2a90af97f7330c2daa037669c6}{Sys\+Tick\+\_\+\+Init}} (\mbox{\hyperlink{systick_8h_ae09db1f564b25246229753e4d125b58b}{systick\+\_\+descriptor\+\_\+t}} $\ast$descriptor)
+\begin{DoxyCompactList}\small\item\em Initializes the sys\+Tick driver \& sets up the descriptor for the driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{systick_8h_acd018ca7f595921b0c6a2928ee15bb2d}{Sys\+Tick\+\_\+\+Set\+Period}} (uint32\+\_\+t Period)
+\begin{DoxyCompactList}\small\item\em Sets the Sys\+Tick period. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{systick_8h_a9de8019f29a501f190908ad2036ebb20}\label{systick_8h_a9de8019f29a501f190908ad2036ebb20}} 
+void \mbox{\hyperlink{systick_8h_a9de8019f29a501f190908ad2036ebb20}{Sys\+Tick\+\_\+\+Reset}} (void)
+\begin{DoxyCompactList}\small\item\em Resets the Sys\+Tick current value register and time count. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{systick_8h_adea7c334036c7faa533940f7fb9d08fc}\label{systick_8h_adea7c334036c7faa533940f7fb9d08fc}} 
+void \mbox{\hyperlink{systick_8h_adea7c334036c7faa533940f7fb9d08fc}{Sys\+Tick\+\_\+\+Int\+Enable}} (void)
+\begin{DoxyCompactList}\small\item\em Sets the interrupt enable bit in the Sys\+Tick control register. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{systick_8h_a19412cbe5c735d9225e9926fc8ff50d3}\label{systick_8h_a19412cbe5c735d9225e9926fc8ff50d3}} 
+void \mbox{\hyperlink{systick_8h_a19412cbe5c735d9225e9926fc8ff50d3}{Sys\+Tick\+\_\+\+Int\+Disable}} (void)
+\begin{DoxyCompactList}\small\item\em Clears the interrupt enable bit in the Sys\+Tick control register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{systick_8h_ac6287940acde4194d51081a0292c23df}{Sys\+Tick\+\_\+\+Start}} (void)
+\begin{DoxyCompactList}\small\item\em Starts the Systick. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{systick_8h_a26578e89671e888e6261e14b59665b68}\label{systick_8h_a26578e89671e888e6261e14b59665b68}} 
+void \mbox{\hyperlink{systick_8h_a26578e89671e888e6261e14b59665b68}{Sys\+Tick\+\_\+\+Stop}} (void)
+\begin{DoxyCompactList}\small\item\em Stops the Sys\+Tick. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{systick_8h_ab5e09814056d617c521549e542639b7e}\label{systick_8h_ab5e09814056d617c521549e542639b7e}} 
+void {\bfseries Sys\+Tick\+\_\+\+Handler} (void)
+\item 
+\mbox{\Hypertarget{systick_8h_a1b06dc2a65b4a99fe2fa5efff773148c}\label{systick_8h_a1b06dc2a65b4a99fe2fa5efff773148c}} 
+uint32\+\_\+t {\bfseries Sys\+Tick\+\_\+\+Get\+Time} (void)
+\item 
+\mbox{\Hypertarget{systick_8h_a8004dc64503d13963c653b464f22912b}\label{systick_8h_a8004dc64503d13963c653b464f22912b}} 
+int32\+\_\+t {\bfseries Sys\+Tick\+\_\+\+Time\+Elapsed} (uint32\+\_\+t time)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains all the definitions, structures, and function prototypes regarding the operation of the Sys\+Tick driver. 
+
+\begin{DoxyAuthor}{Author}
+Manuel Burnay 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+09.\+26 (Created) 
+
+2019.\+10.\+04 (Last Modified) 
+\end{DoxyDate}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{systick_8h_af9064247c65376cd0bad099a63a43596}\label{systick_8h_af9064247c65376cd0bad099a63a43596}} 
+\index{systick.h@{systick.h}!systick\_countdown\_t@{systick\_countdown\_t}}
+\index{systick\_countdown\_t@{systick\_countdown\_t}!systick.h@{systick.h}}
+\doxysubsubsection{\texorpdfstring{systick\_countdown\_t}{systick\_countdown\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structsystick__countdown__}{systick\+\_\+countdown\+\_\+}}  \mbox{\hyperlink{systick_8h_af9064247c65376cd0bad099a63a43596}{systick\+\_\+countdown\+\_\+t}}}
+
+
+
+Sys\+Tick countdown structure. 
+
+Sys\+Tick uses this structure to count down the value every tick, once the value reaches zero, it\textquotesingle{}ll stop the count down and call the callback function. \mbox{\Hypertarget{systick_8h_a03e66aa88c31a46ef1b908b90a36ceb0}\label{systick_8h_a03e66aa88c31a46ef1b908b90a36ceb0}} 
+\index{systick.h@{systick.h}!systick\_counter\_t@{systick\_counter\_t}}
+\index{systick\_counter\_t@{systick\_counter\_t}!systick.h@{systick.h}}
+\doxysubsubsection{\texorpdfstring{systick\_counter\_t}{systick\_counter\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structsystick__counter__}{systick\+\_\+counter\+\_\+}}  \mbox{\hyperlink{systick_8h_a03e66aa88c31a46ef1b908b90a36ceb0}{systick\+\_\+counter\+\_\+t}}}
+
+
+
+Sys\+Tick counter structure. 
+
+Sys\+Tick uses this structure to count ticks, if comparision is enabled, it\textquotesingle{}ll check if the count has reached the cmp value, and if it has it\textquotesingle{}ll reset the count and call the callback funtion. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{systick_8h_a966e8d2a90af97f7330c2daa037669c6}\label{systick_8h_a966e8d2a90af97f7330c2daa037669c6}} 
+\index{systick.h@{systick.h}!SysTick\_Init@{SysTick\_Init}}
+\index{SysTick\_Init@{SysTick\_Init}!systick.h@{systick.h}}
+\doxysubsubsection{\texorpdfstring{SysTick\_Init()}{SysTick\_Init()}}
+{\footnotesize\ttfamily void Sys\+Tick\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{systick_8h_ae09db1f564b25246229753e4d125b58b}{systick\+\_\+descriptor\+\_\+t}} $\ast$}]{descriptor }\end{DoxyParamCaption})}
+
+
+
+Initializes the sys\+Tick driver \& sets up the descriptor for the driver. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em descriptor} & pointer to Sys\+Tick descriptor that the driver will configure with to have access to it.\\
+\hline
+\end{DoxyParams}
+The descriptor\textquotesingle{}s pointer will be saved internally into the driver module so the interrupt handler can have access to it. 
+
+Definition at line 23 of file systick.\+c.
+
+\mbox{\Hypertarget{systick_8h_acd018ca7f595921b0c6a2928ee15bb2d}\label{systick_8h_acd018ca7f595921b0c6a2928ee15bb2d}} 
+\index{systick.h@{systick.h}!SysTick\_SetPeriod@{SysTick\_SetPeriod}}
+\index{SysTick\_SetPeriod@{SysTick\_SetPeriod}!systick.h@{systick.h}}
+\doxysubsubsection{\texorpdfstring{SysTick\_SetPeriod()}{SysTick\_SetPeriod()}}
+{\footnotesize\ttfamily void Sys\+Tick\+\_\+\+Set\+Period (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Period }\end{DoxyParamCaption})}
+
+
+
+Sets the Sys\+Tick period. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Period} & Number of clock cycles between interrupt triggers, i.\+e. period. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file systick.\+c.
+
+\mbox{\Hypertarget{systick_8h_ac6287940acde4194d51081a0292c23df}\label{systick_8h_ac6287940acde4194d51081a0292c23df}} 
+\index{systick.h@{systick.h}!SysTick\_Start@{SysTick\_Start}}
+\index{SysTick\_Start@{SysTick\_Start}!systick.h@{systick.h}}
+\doxysubsubsection{\texorpdfstring{SysTick\_Start()}{SysTick\_Start()}}
+{\footnotesize\ttfamily void Sys\+Tick\+\_\+\+Start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Starts the Systick. 
+
+This function does not interfere with the ST C\+U\+R\+R\+E\+NT register, so the systick will count from the value already in it. 
+
+Definition at line 79 of file systick.\+c.
+

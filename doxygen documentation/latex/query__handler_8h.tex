@@ -1,0 +1,267 @@
+\hypertarget{query__handler_8h}{}\doxysection{includes/query\+\_\+handler.h File Reference}
+\label{query__handler_8h}\index{includes/query\_handler.h@{includes/query\_handler.h}}
+
+
+Contains all the definitions and function prototypes for the query handler.  
+
+
+{\ttfamily \#include \char`\"{}uart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}systime.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structescape__code__}{escape\+\_\+code\+\_\+}}
+\begin{DoxyCompactList}\small\item\em escape code buffer. Used to map an escape cursor code to it\textquotesingle{}s individual parameters. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structquery__buffer__}{query\+\_\+buffer\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Query buffer structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{query__handler_8h_a45956ecfc972768bb16c28537a970abc}\label{query__handler_8h_a45956ecfc972768bb16c28537a970abc}} 
+\#define {\bfseries V\+A\+L\+I\+D\+\_\+\+D\+A\+T\+E\+\_\+\+S\+C\+AN}~3
+\item 
+\mbox{\Hypertarget{query__handler_8h_ace4b0aad6d9c505c985dc0c0cee525b1}\label{query__handler_8h_ace4b0aad6d9c505c985dc0c0cee525b1}} 
+\#define {\bfseries V\+A\+L\+I\+D\+\_\+\+T\+I\+M\+E\+\_\+\+S\+C\+AN}~4
+\item 
+\mbox{\Hypertarget{query__handler_8h_aa03f0d9accb3fc8adfef9c778757d015}\label{query__handler_8h_aa03f0d9accb3fc8adfef9c778757d015}} 
+\#define {\bfseries V\+A\+L\+I\+D\+\_\+\+A\+L\+A\+R\+M\+\_\+\+S\+C\+AN}~V\+A\+L\+I\+D\+\_\+\+T\+I\+M\+E\+\_\+\+S\+C\+AN
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{query__handler_8h_ad87c0d4066687dbdd32e4c348bb927aa}\label{query__handler_8h_ad87c0d4066687dbdd32e4c348bb927aa}} 
+typedef struct \mbox{\hyperlink{structescape__code__}{escape\+\_\+code\+\_\+}} \mbox{\hyperlink{query__handler_8h_ad87c0d4066687dbdd32e4c348bb927aa}{escape\+\_\+code\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em escape code buffer. Used to map an escape cursor code to it\textquotesingle{}s individual parameters. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structquery__buffer__}{query\+\_\+buffer\+\_\+}} \mbox{\hyperlink{query__handler_8h_ab2bda8e4bcd26e1414798f93591062d5}{query\+\_\+buffer\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Query buffer structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{query__handler_8h_a9de6cdb243f35c421d670af1a4e2ea65}{Q\+U\+E\+R\+Y\+\_\+\+T\+Y\+P\+ES}} \{ {\bfseries T\+I\+ME}, 
+{\bfseries D\+A\+TE}, 
+{\bfseries A\+L\+A\+RM}
+ \}
+\begin{DoxyCompactList}\small\item\em all query types supported by the handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{query__handler_8h_aa04b3631c6b752c6eaa0e65558d97396}{Query\+Handler\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the query handler\textquotesingle{}s buffer and the terminal entry point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{query__handler_8h_af53e745ef398bd2a224ac8eb034c194e}{Query\+Handler\+\_\+\+Update}} (\mbox{\hyperlink{circular__buffer_8h_a7c4fbcfafc38ea754a6084a02ccf0910}{circular\+\_\+buffer\+\_\+t}} $\ast$rx\+\_\+buf)
+\begin{DoxyCompactList}\small\item\em Query Handler update function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{query__handler_8h_a7281109aa92cc7387878dc419f1ca242}{Query\+Check}} ()
+\begin{DoxyCompactList}\small\item\em Checks the data currently in the Query buffer for a valid query and services valid queries. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{query__handler_8h_aba3154bc045ab5614980e67fb26f4e1f}{Set\+Time}} (char $\ast$clock\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Gets a new time from a string for Systime to track/maintain. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{query__handler_8h_aa453a116ef2d6a2f9456b3ae91e32b2f}\label{query__handler_8h_aa453a116ef2d6a2f9456b3ae91e32b2f}} 
+void \mbox{\hyperlink{query__handler_8h_aa453a116ef2d6a2f9456b3ae91e32b2f}{Display\+Time}} (void)
+\begin{DoxyCompactList}\small\item\em Displays the current time in Systime to U\+A\+RT. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{query__handler_8h_aabcec1a665d976b0270eb68fd96bf153}{Set\+Date}} (char $\ast$date\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Sets a new date for Systime to track/maintain based on a char string\textquotesingle{}s data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{query__handler_8h_a6f88f98cc0b12290119e4358b69c9329}\label{query__handler_8h_a6f88f98cc0b12290119e4358b69c9329}} 
+void \mbox{\hyperlink{query__handler_8h_a6f88f98cc0b12290119e4358b69c9329}{Display\+Date}} (void)
+\begin{DoxyCompactList}\small\item\em Displays the current date in Systime to U\+A\+RT. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{query__handler_8h_a4c62383712fc553cbef7e87ead5ee010}{Set\+Alarm}} (char $\ast$alarm\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Sets an alarm of Systime to configure based on a char string\textquotesingle{}s data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{query__handler_8h_aa056104348be52666665dd099843db93}{Alarm\+\_\+callback}} (void)
+\begin{DoxyCompactList}\small\item\em Alarm Callback function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{query__handler_8h_a08c12c2ca3ca95c9d0ccd685f57b3cae}{Cursor\+Code\+Check}} (\mbox{\hyperlink{circular__buffer_8h_a7c4fbcfafc38ea754a6084a02ccf0910}{circular\+\_\+buffer\+\_\+t}} $\ast$rx\+\_\+buf)
+\begin{DoxyCompactList}\small\item\em Checks for a cursor escape code in the receive buffer and acts according to the cursor code found. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains all the definitions and function prototypes for the query handler. 
+
+\begin{DoxyAuthor}{Author}
+Manuel Burnay 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+09.\+26 (Created) 
+
+2019.\+10.\+10 (Last Modified) 
+\end{DoxyDate}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{query__handler_8h_ab2bda8e4bcd26e1414798f93591062d5}\label{query__handler_8h_ab2bda8e4bcd26e1414798f93591062d5}} 
+\index{query\_handler.h@{query\_handler.h}!query\_buffer\_t@{query\_buffer\_t}}
+\index{query\_buffer\_t@{query\_buffer\_t}!query\_handler.h@{query\_handler.h}}
+\doxysubsubsection{\texorpdfstring{query\_buffer\_t}{query\_buffer\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structquery__buffer__}{query\+\_\+buffer\+\_\+}}  \mbox{\hyperlink{query__handler_8h_ab2bda8e4bcd26e1414798f93591062d5}{query\+\_\+buffer\+\_\+t}}}
+
+
+
+Query buffer structure. 
+
+It is simply a circular buffer with an extra variable that is used to keep track of the length of the entry as characters are inputted to the monitor. (the write pointer of the circular buffer is the \char`\"{}cursor\char`\"{}, so it can be moved while there\textquotesingle{}s vald ata in front of it) 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{query__handler_8h_a9de6cdb243f35c421d670af1a4e2ea65}\label{query__handler_8h_a9de6cdb243f35c421d670af1a4e2ea65}} 
+\index{query\_handler.h@{query\_handler.h}!QUERY\_TYPES@{QUERY\_TYPES}}
+\index{QUERY\_TYPES@{QUERY\_TYPES}!query\_handler.h@{query\_handler.h}}
+\doxysubsubsection{\texorpdfstring{QUERY\_TYPES}{QUERY\_TYPES}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{query__handler_8h_a9de6cdb243f35c421d670af1a4e2ea65}{Q\+U\+E\+R\+Y\+\_\+\+T\+Y\+P\+ES}}}
+
+
+
+all query types supported by the handler. 
+
+Each query has a \char`\"{}set\char`\"{} variant 
+
+Definition at line 21 of file query\+\_\+handler.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{query__handler_8h_aa056104348be52666665dd099843db93}\label{query__handler_8h_aa056104348be52666665dd099843db93}} 
+\index{query\_handler.h@{query\_handler.h}!Alarm\_callback@{Alarm\_callback}}
+\index{Alarm\_callback@{Alarm\_callback}!query\_handler.h@{query\_handler.h}}
+\doxysubsubsection{\texorpdfstring{Alarm\_callback()}{Alarm\_callback()}}
+{\footnotesize\ttfamily void Alarm\+\_\+callback (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Alarm Callback function. 
+
+Function is called when a set alarm\textquotesingle{}s time has elapsed. 
+
+Definition at line 334 of file query\+\_\+handler.\+c.
+
+\mbox{\Hypertarget{query__handler_8h_a08c12c2ca3ca95c9d0ccd685f57b3cae}\label{query__handler_8h_a08c12c2ca3ca95c9d0ccd685f57b3cae}} 
+\index{query\_handler.h@{query\_handler.h}!CursorCodeCheck@{CursorCodeCheck}}
+\index{CursorCodeCheck@{CursorCodeCheck}!query\_handler.h@{query\_handler.h}}
+\doxysubsubsection{\texorpdfstring{CursorCodeCheck()}{CursorCodeCheck()}}
+{\footnotesize\ttfamily void Cursor\+Code\+Check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{circular__buffer_8h_a7c4fbcfafc38ea754a6084a02ccf0910}{circular\+\_\+buffer\+\_\+t}} $\ast$}]{rx\+\_\+buf }\end{DoxyParamCaption})}
+
+
+
+Checks for a cursor escape code in the receive buffer and acts according to the cursor code found. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em rx\+\_\+buf} & Pointer to receive buffer with escape code at the read pointer.\\
+\hline
+\end{DoxyParams}
+This function only checks for cursor codes that come from the arrow keys. Any other escape codes (including cursor code with multiple \char`\"{}moves\char`\"{}) are not handled.
+
+This function assumes that the escape char (x1b) has been previously detected and removed from the rx buffer. \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Change this function so it handles more escape codes (or just handles them better) H\+I\+NT\+: Escape code only contain one alphabetic character, and it\textquotesingle{}s always at the end of the code. @0todo\+: create a query save buffer with the last couple of query entries and have the \textquotesingle{}UP cursor\textquotesingle{} escape code select one of the save query entries. \end{DoxyRefDesc}
+
+
+Definition at line 365 of file query\+\_\+handler.\+c.
+
+\mbox{\Hypertarget{query__handler_8h_a7281109aa92cc7387878dc419f1ca242}\label{query__handler_8h_a7281109aa92cc7387878dc419f1ca242}} 
+\index{query\_handler.h@{query\_handler.h}!QueryCheck@{QueryCheck}}
+\index{QueryCheck@{QueryCheck}!query\_handler.h@{query\_handler.h}}
+\doxysubsubsection{\texorpdfstring{QueryCheck()}{QueryCheck()}}
+{\footnotesize\ttfamily bool Query\+Check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks the data currently in the Query buffer for a valid query and services valid queries. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if there is a valid query in the buffer, False in not. 
+\end{DoxyReturn}
+
+
+Definition at line 108 of file query\+\_\+handler.\+c.
+
+\mbox{\Hypertarget{query__handler_8h_aa04b3631c6b752c6eaa0e65558d97396}\label{query__handler_8h_aa04b3631c6b752c6eaa0e65558d97396}} 
+\index{query\_handler.h@{query\_handler.h}!QueryHandler\_Init@{QueryHandler\_Init}}
+\index{QueryHandler\_Init@{QueryHandler\_Init}!query\_handler.h@{query\_handler.h}}
+\doxysubsubsection{\texorpdfstring{QueryHandler\_Init()}{QueryHandler\_Init()}}
+{\footnotesize\ttfamily void Query\+Handler\+\_\+\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the query handler\textquotesingle{}s buffer and the terminal entry point. 
+
+Query character buffer
+
+Make sure the U\+A\+RT driver has been initialized prior to calling this function, otherwise you will cause a memory access fault. 
+
+Definition at line 47 of file query\+\_\+handler.\+c.
+
+\mbox{\Hypertarget{query__handler_8h_af53e745ef398bd2a224ac8eb034c194e}\label{query__handler_8h_af53e745ef398bd2a224ac8eb034c194e}} 
+\index{query\_handler.h@{query\_handler.h}!QueryHandler\_Update@{QueryHandler\_Update}}
+\index{QueryHandler\_Update@{QueryHandler\_Update}!query\_handler.h@{query\_handler.h}}
+\doxysubsubsection{\texorpdfstring{QueryHandler\_Update()}{QueryHandler\_Update()}}
+{\footnotesize\ttfamily void Query\+Handler\+\_\+\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{circular__buffer_8h_a7c4fbcfafc38ea754a6084a02ccf0910}{circular\+\_\+buffer\+\_\+t}} $\ast$}]{rx\+\_\+buf }\end{DoxyParamCaption})}
+
+
+
+Query Handler update function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em rx\+\_\+buf} & Receive buffer that contains the data being inputed by the user.\\
+\hline
+\end{DoxyParams}
+This function normally just transfers bytes from the RX buffer to the query buffer, but checks for certain key characters that effect the behavior of the query buffer, namely the delete/backspace char, the E\+N\+T\+ER char, and the start of an A\+N\+SI escape code. 
+
+Definition at line 63 of file query\+\_\+handler.\+c.
+
+\mbox{\Hypertarget{query__handler_8h_a4c62383712fc553cbef7e87ead5ee010}\label{query__handler_8h_a4c62383712fc553cbef7e87ead5ee010}} 
+\index{query\_handler.h@{query\_handler.h}!SetAlarm@{SetAlarm}}
+\index{SetAlarm@{SetAlarm}!query\_handler.h@{query\_handler.h}}
+\doxysubsubsection{\texorpdfstring{SetAlarm()}{SetAlarm()}}
+{\footnotesize\ttfamily bool Set\+Alarm (\begin{DoxyParamCaption}\item[{char $\ast$}]{alarm\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Sets an alarm of Systime to configure based on a char string\textquotesingle{}s data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em alarm\+\_\+str} & char string containing the alarm time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if alarm was successfully set, false if not.
+\end{DoxyReturn}
+Setting the alarm can fail in two ways\+: An error in the alarm string format, or an error in the time values. 
+
+Definition at line 285 of file query\+\_\+handler.\+c.
+
+\mbox{\Hypertarget{query__handler_8h_aabcec1a665d976b0270eb68fd96bf153}\label{query__handler_8h_aabcec1a665d976b0270eb68fd96bf153}} 
+\index{query\_handler.h@{query\_handler.h}!SetDate@{SetDate}}
+\index{SetDate@{SetDate}!query\_handler.h@{query\_handler.h}}
+\doxysubsubsection{\texorpdfstring{SetDate()}{SetDate()}}
+{\footnotesize\ttfamily bool Set\+Date (\begin{DoxyParamCaption}\item[{char $\ast$}]{new\+\_\+date\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Sets a new date for Systime to track/maintain based on a char string\textquotesingle{}s data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+date\+\_\+str} & char string with new date to be set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if a new date was set, false if not.
+\end{DoxyReturn}
+Setting the date can fail in two ways\+: An error in the date string format, or an error in the date values. 
+
+Definition at line 220 of file query\+\_\+handler.\+c.
+
+\mbox{\Hypertarget{query__handler_8h_aba3154bc045ab5614980e67fb26f4e1f}\label{query__handler_8h_aba3154bc045ab5614980e67fb26f4e1f}} 
+\index{query\_handler.h@{query\_handler.h}!SetTime@{SetTime}}
+\index{SetTime@{SetTime}!query\_handler.h@{query\_handler.h}}
+\doxysubsubsection{\texorpdfstring{SetTime()}{SetTime()}}
+{\footnotesize\ttfamily bool Set\+Time (\begin{DoxyParamCaption}\item[{char $\ast$}]{new\+\_\+time\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Gets a new time from a string for Systime to track/maintain. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+time\+\_\+str} & char string with the new time to be set. @bool True if a new time was set, false if not.\\
+\hline
+\end{DoxyParams}
+Setting the time can fail in two ways\+: An error in the time string format, or an error in the time values. 
+
+Definition at line 172 of file query\+\_\+handler.\+c.
+

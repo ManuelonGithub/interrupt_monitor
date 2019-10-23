@@ -1,0 +1,18 @@
+
+\begin{DoxyRefList}
+\item[Global \mbox{\hyperlink{query__handler_8c_a08c12c2ca3ca95c9d0ccd685f57b3cae}{Cursor\+Code\+Check}} (circular\+\_\+buffer\+\_\+t $\ast$rx\+\_\+buf)]\label{todo__todo000003}%
+\Hypertarget{todo__todo000003}%
+Change this function so it handles more escape codes (or just handles them better) H\+I\+NT\+: Escape code only contain one alphabetic character, and it\textquotesingle{}s always at the end of the code. @0todo\+: create a query save buffer with the last couple of query entries and have the \textquotesingle{}UP cursor\textquotesingle{} escape code select one of the save query entries.  
+\item[Global \mbox{\hyperlink{systime_8c_a366578f4517a84264aac2948894829fa}{systime\+\_\+\+Convert\+Tick\+Counter}} (uint32\+\_\+t t\+\_\+count)]\label{todo__todo000005}%
+\Hypertarget{todo__todo000005}%
+This function should get a pointer to a clock structure to put the values in, instead of returning a clock structure ($<$-\/ less efficient).  
+\item[Global \mbox{\hyperlink{systime_8c_a1834094b1efac7c6d822a015c7d511ba}{systime\+\_\+\+Inc\+Date\+\_\+callback}} (void)]\label{todo__todo000004}%
+\Hypertarget{todo__todo000004}%
+Wrap year back to 0 when it has elapsed 9999.  
+\item[Global \mbox{\hyperlink{uart_8c_ad35da456a0bfc73e5a9c6dfbfb420552}{U\+A\+R\+T0\+\_\+\+Init}} (uart\+\_\+descriptor\+\_\+t $\ast$descriptor)]\label{todo__todo000001}%
+\Hypertarget{todo__todo000001}%
+Convert the boolean configurations into a bit-\/style configuration.  
+\item[Global \mbox{\hyperlink{uart_8c_a13bce21e1f2ea51aa4e09f2458e4e983}{U\+A\+R\+T0\+\_\+\+Interrupt\+Enable}} (unsigned long Interrupt\+Index)]\label{todo__todo000002}%
+\Hypertarget{todo__todo000002}%
+Move this onto the \mbox{\hyperlink{cpu_8h}{cpu.\+h}} since it\textquotesingle{}s a general way to enable the interrupt in the N\+V\+IC register. 
+\end{DoxyRefList}

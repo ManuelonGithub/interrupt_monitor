@@ -1,0 +1,34 @@
+\hypertarget{structquery__buffer__}{}\doxysection{query\+\_\+buffer\+\_\+ Struct Reference}
+\label{structquery__buffer__}\index{query\_buffer\_@{query\_buffer\_}}
+
+
+Query buffer structure.  
+
+
+
+
+{\ttfamily \#include $<$query\+\_\+handler.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structquery__buffer___afef0a1f95504d16eab60f8ccf9806eaf}\label{structquery__buffer___afef0a1f95504d16eab60f8ccf9806eaf}} 
+\mbox{\hyperlink{circular__buffer_8h_a7c4fbcfafc38ea754a6084a02ccf0910}{circular\+\_\+buffer\+\_\+t}} {\bfseries buffer}
+\item 
+\mbox{\Hypertarget{structquery__buffer___a400029827cc2d584f3fa744c625332c0}\label{structquery__buffer___a400029827cc2d584f3fa744c625332c0}} 
+uint32\+\_\+t {\bfseries entry\+\_\+ptr}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Query buffer structure. 
+
+It is simply a circular buffer with an extra variable that is used to keep track of the length of the entry as characters are inputted to the monitor. (the write pointer of the circular buffer is the \char`\"{}cursor\char`\"{}, so it can be moved while there\textquotesingle{}s vald ata in front of it) 
+
+Definition at line 44 of file query\+\_\+handler.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+includes/\mbox{\hyperlink{query__handler_8h}{query\+\_\+handler.\+h}}\end{DoxyCompactItemize}

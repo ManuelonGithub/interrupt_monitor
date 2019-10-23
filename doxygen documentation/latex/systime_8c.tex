@@ -1,0 +1,259 @@
+\hypertarget{systime_8c}{}\doxysection{systime.\+c File Reference}
+\label{systime_8c}\index{systime.c@{systime.c}}
+
+
+Middleware for the systick driver. Contains all the functionality to maintain and keep track of time, date, and user-\/set alarms.  
+
+
+{\ttfamily \#include \char`\"{}systime.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{systime_8c_a1834094b1efac7c6d822a015c7d511ba}{systime\+\_\+\+Inc\+Date\+\_\+callback}} (void)
+\begin{DoxyCompactList}\small\item\em 2-\/D array that contains the valid day count for every month, for both leap years and non-\/leap years. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{systime_8c_a0ad1f445f996f3a78afad537303b360d}{Days\+In\+Month}} (uint8\+\_\+t month, uint16\+\_\+t year)
+\begin{DoxyCompactList}\small\item\em Finds the number of days in a month, while considering leap years. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{systime_8c_ad00117c821705b0d1e722d2cc3ef66eb}{systime\+\_\+\+Convert\+Clock}} (\mbox{\hyperlink{systime_8h_a5aa9bef0709de604877a42a7541c4be1}{clock\+\_\+t}} $\ast$clock)
+\begin{DoxyCompactList}\small\item\em Converts a clock structure to tenth of seconds count. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{systime_8h_a5aa9bef0709de604877a42a7541c4be1}{clock\+\_\+t}} \mbox{\hyperlink{systime_8c_a366578f4517a84264aac2948894829fa}{systime\+\_\+\+Convert\+Tick\+Counter}} (uint32\+\_\+t t\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Converts tenth of seconds count to a clock structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{systime_8c_a47e79b4a2c3c10badd42025bd47f7afc}{systime\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em system time data structure. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{systime_8c_a5325164e57606883b99ff3a156ab4d1c}{systime\+\_\+\+Set\+Time}} (\mbox{\hyperlink{systime_8h_a5aa9bef0709de604877a42a7541c4be1}{clock\+\_\+t}} $\ast$new\+\_\+clock)
+\begin{DoxyCompactList}\small\item\em Sets the system time to a new time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{systime_8c_a20081e1964ee6211394b880f3d84d626}{systime\+\_\+\+Get\+Time}} (\mbox{\hyperlink{systime_8h_a5aa9bef0709de604877a42a7541c4be1}{clock\+\_\+t}} $\ast$ret\+\_\+clock)
+\begin{DoxyCompactList}\small\item\em Gets the current system time. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{systime_8c_a64cad8b3ae277ab4321ad9feb82bba47}{systime\+\_\+\+Set\+Date}} (\mbox{\hyperlink{systime_8h_ac98b478d30832f75e75d12b4b23cdc66}{date\+\_\+t}} $\ast$new\+\_\+date)
+\begin{DoxyCompactList}\small\item\em Sets the system date to a new date. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{systime_8c_a3a0778cb6cb1c790d003f8deff6ee317}{systime\+\_\+\+Get\+Date}} (\mbox{\hyperlink{systime_8h_ac98b478d30832f75e75d12b4b23cdc66}{date\+\_\+t}} $\ast$ret\+\_\+date)
+\begin{DoxyCompactList}\small\item\em Gets the current system date. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{systime_8c_a6882a312d4a3517405018719a56d2987}{systime\+\_\+\+Set\+Alarm}} (\mbox{\hyperlink{systime_8h_a5aa9bef0709de604877a42a7541c4be1}{clock\+\_\+t}} $\ast$alarm\+\_\+clock, void($\ast$alarm\+\_\+cb)(void))
+\begin{DoxyCompactList}\small\item\em Sets an alarm for the system to track. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{systime_8c_a40ca43edad7eaddf3cd08636ca3a9721}\label{systime_8c_a40ca43edad7eaddf3cd08636ca3a9721}} 
+void \mbox{\hyperlink{systime_8c_a40ca43edad7eaddf3cd08636ca3a9721}{systime\+\_\+\+Clear\+Alarm}} ()
+\begin{DoxyCompactList}\small\item\em Clears the alarm being tracked by the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Middleware for the systick driver. Contains all the functionality to maintain and keep track of time, date, and user-\/set alarms. 
+
+\begin{DoxyAuthor}{Author}
+Manuel Burnay 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+09.\+24 (Created) 
+
+2019.\+10.\+03 (Last Modified)
+\end{DoxyDate}
+Configures systick to activate every tenth of a second, and uses systick to maintain and upkeep an accurate time, date and a user-\/set alarm. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{systime_8c_a0ad1f445f996f3a78afad537303b360d}\label{systime_8c_a0ad1f445f996f3a78afad537303b360d}} 
+\index{systime.c@{systime.c}!DaysInMonth@{DaysInMonth}}
+\index{DaysInMonth@{DaysInMonth}!systime.c@{systime.c}}
+\doxysubsubsection{\texorpdfstring{DaysInMonth()}{DaysInMonth()}}
+{\footnotesize\ttfamily uint8\+\_\+t Days\+In\+Month (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{month,  }\item[{uint16\+\_\+t}]{year }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Finds the number of days in a month, while considering leap years. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em month} & month to find the amount of days in it. \\
+\hline
+\mbox{\texttt{ in}}  & {\em year} & Used to determine if it\textquotesingle{}s a leap year (where February contains 29 days and not 28). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 212 of file systime.\+c.
+
+\mbox{\Hypertarget{systime_8c_ad00117c821705b0d1e722d2cc3ef66eb}\label{systime_8c_ad00117c821705b0d1e722d2cc3ef66eb}} 
+\index{systime.c@{systime.c}!systime\_ConvertClock@{systime\_ConvertClock}}
+\index{systime\_ConvertClock@{systime\_ConvertClock}!systime.c@{systime.c}}
+\doxysubsubsection{\texorpdfstring{systime\_ConvertClock()}{systime\_ConvertClock()}}
+{\footnotesize\ttfamily uint32\+\_\+t systime\+\_\+\+Convert\+Clock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{systime_8h_a5aa9bef0709de604877a42a7541c4be1}{clock\+\_\+t}} $\ast$}]{clock }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts a clock structure to tenth of seconds count. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em clock} & pointer to clock structure to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}uint32\+\_\+t\mbox{]} Amount of tenth of seconds equivalent to the clock. 
+\end{DoxyReturn}
+
+
+Definition at line 173 of file systime.\+c.
+
+\mbox{\Hypertarget{systime_8c_a366578f4517a84264aac2948894829fa}\label{systime_8c_a366578f4517a84264aac2948894829fa}} 
+\index{systime.c@{systime.c}!systime\_ConvertTickCounter@{systime\_ConvertTickCounter}}
+\index{systime\_ConvertTickCounter@{systime\_ConvertTickCounter}!systime.c@{systime.c}}
+\doxysubsubsection{\texorpdfstring{systime\_ConvertTickCounter()}{systime\_ConvertTickCounter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{systime_8h_a5aa9bef0709de604877a42a7541c4be1}{clock\+\_\+t}} systime\+\_\+\+Convert\+Tick\+Counter (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{t\+\_\+count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts tenth of seconds count to a clock structure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em t\+\_\+count} & tenth of seconds count to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}clock\+\_\+t\mbox{]} Clock structure equivalent to the count. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]This function should get a pointer to a clock structure to put the values in, instead of returning a clock structure ($<$-\/ less efficient). \end{DoxyRefDesc}
+
+
+Definition at line 188 of file systime.\+c.
+
+\mbox{\Hypertarget{systime_8c_a3a0778cb6cb1c790d003f8deff6ee317}\label{systime_8c_a3a0778cb6cb1c790d003f8deff6ee317}} 
+\index{systime.c@{systime.c}!systime\_GetDate@{systime\_GetDate}}
+\index{systime\_GetDate@{systime\_GetDate}!systime.c@{systime.c}}
+\doxysubsubsection{\texorpdfstring{systime\_GetDate()}{systime\_GetDate()}}
+{\footnotesize\ttfamily void systime\+\_\+\+Get\+Date (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{systime_8h_ac98b478d30832f75e75d12b4b23cdc66}{date\+\_\+t}} $\ast$}]{ret\+\_\+date }\end{DoxyParamCaption})}
+
+
+
+Gets the current system date. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ret\+\_\+date} & pointer to date\+\_\+t structure where the system date will be copied to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 118 of file systime.\+c.
+
+\mbox{\Hypertarget{systime_8c_a20081e1964ee6211394b880f3d84d626}\label{systime_8c_a20081e1964ee6211394b880f3d84d626}} 
+\index{systime.c@{systime.c}!systime\_GetTime@{systime\_GetTime}}
+\index{systime\_GetTime@{systime\_GetTime}!systime.c@{systime.c}}
+\doxysubsubsection{\texorpdfstring{systime\_GetTime()}{systime\_GetTime()}}
+{\footnotesize\ttfamily void systime\+\_\+\+Get\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{systime_8h_a5aa9bef0709de604877a42a7541c4be1}{clock\+\_\+t}} $\ast$}]{ret\+\_\+clock }\end{DoxyParamCaption})}
+
+
+
+Gets the current system time. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ret\+\_\+clock} & pointer to clock\+\_\+t structure where the current system time will be copied to. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 84 of file systime.\+c.
+
+\mbox{\Hypertarget{systime_8c_a1834094b1efac7c6d822a015c7d511ba}\label{systime_8c_a1834094b1efac7c6d822a015c7d511ba}} 
+\index{systime.c@{systime.c}!systime\_IncDate\_callback@{systime\_IncDate\_callback}}
+\index{systime\_IncDate\_callback@{systime\_IncDate\_callback}!systime.c@{systime.c}}
+\doxysubsubsection{\texorpdfstring{systime\_IncDate\_callback()}{systime\_IncDate\_callback()}}
+{\footnotesize\ttfamily void systime\+\_\+\+Inc\+Date\+\_\+callback (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+2-\/D array that contains the valid day count for every month, for both leap years and non-\/leap years. 
+
+System time increment date callback function.
+
+This function is sent to the systick driver to be called whenever the tick counter has reached the amount of ticks that would occur in a 24h day.
+
+It increments the date safely, and it cascades date value overflows. \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Wrap year back to 0 when it has elapsed 9999. \end{DoxyRefDesc}
+
+
+Definition at line 153 of file systime.\+c.
+
+\mbox{\Hypertarget{systime_8c_a47e79b4a2c3c10badd42025bd47f7afc}\label{systime_8c_a47e79b4a2c3c10badd42025bd47f7afc}} 
+\index{systime.c@{systime.c}!systime\_init@{systime\_init}}
+\index{systime\_init@{systime\_init}!systime.c@{systime.c}}
+\doxysubsubsection{\texorpdfstring{systime\_init()}{systime\_init()}}
+{\footnotesize\ttfamily void systime\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+system time data structure. 
+
+Initializes the systime middleware.
+
+Sets the system time and date to initial/default values, and configures/initializes the systick driver. 
+
+Definition at line 35 of file systime.\+c.
+
+\mbox{\Hypertarget{systime_8c_a6882a312d4a3517405018719a56d2987}\label{systime_8c_a6882a312d4a3517405018719a56d2987}} 
+\index{systime.c@{systime.c}!systime\_SetAlarm@{systime\_SetAlarm}}
+\index{systime\_SetAlarm@{systime\_SetAlarm}!systime.c@{systime.c}}
+\doxysubsubsection{\texorpdfstring{systime\_SetAlarm()}{systime\_SetAlarm()}}
+{\footnotesize\ttfamily bool systime\+\_\+\+Set\+Alarm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{systime_8h_a5aa9bef0709de604877a42a7541c4be1}{clock\+\_\+t}} $\ast$}]{alarm\+\_\+clock,  }\item[{void($\ast$)(void)}]{alarm\+\_\+cb }\end{DoxyParamCaption})}
+
+
+
+Sets an alarm for the system to track. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em alarm\+\_\+clock} & clock for the alarm to be set to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em alarm\+\_\+cb} & callback function to be called for when the alarm\textquotesingle{}s time has elapsed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} Always true. Returns boolean for application layer compatibility. 
+\end{DoxyReturn}
+
+
+Definition at line 129 of file systime.\+c.
+
+\mbox{\Hypertarget{systime_8c_a64cad8b3ae277ab4321ad9feb82bba47}\label{systime_8c_a64cad8b3ae277ab4321ad9feb82bba47}} 
+\index{systime.c@{systime.c}!systime\_SetDate@{systime\_SetDate}}
+\index{systime\_SetDate@{systime\_SetDate}!systime.c@{systime.c}}
+\doxysubsubsection{\texorpdfstring{systime\_SetDate()}{systime\_SetDate()}}
+{\footnotesize\ttfamily bool systime\+\_\+\+Set\+Date (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{systime_8h_ac98b478d30832f75e75d12b4b23cdc66}{date\+\_\+t}} $\ast$}]{new\+\_\+date }\end{DoxyParamCaption})}
+
+
+
+Sets the system date to a new date. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+date} & new date for the system to be set to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the system date was successfully change, false if not.
+\end{DoxyReturn}
+This function safely sets the system date to a new date, meaning that it\textquotesingle{}ll check the values in new\+\_\+date to make sure they represent a valid date. 
+
+Definition at line 97 of file systime.\+c.
+
+\mbox{\Hypertarget{systime_8c_a5325164e57606883b99ff3a156ab4d1c}\label{systime_8c_a5325164e57606883b99ff3a156ab4d1c}} 
+\index{systime.c@{systime.c}!systime\_SetTime@{systime\_SetTime}}
+\index{systime\_SetTime@{systime\_SetTime}!systime.c@{systime.c}}
+\doxysubsubsection{\texorpdfstring{systime\_SetTime()}{systime\_SetTime()}}
+{\footnotesize\ttfamily bool systime\+\_\+\+Set\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{systime_8h_a5aa9bef0709de604877a42a7541c4be1}{clock\+\_\+t}} $\ast$}]{new\+\_\+clock }\end{DoxyParamCaption})}
+
+
+
+Sets the system time to a new time. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+\_\+clock} & new time for the system to be set to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}bool\mbox{]} True if the system time was successfully changed, False if not (Error in the new time\textquotesingle{}s values).
+\end{DoxyReturn}
+This function safely sets the system time, meaning that it\textquotesingle{}ll check that the new\+\_\+clock param is valid before setting it as the new time. 
+
+Definition at line 64 of file systime.\+c.
+

@@ -1,0 +1,40 @@
+\hypertarget{structsystick__counter__}{}\doxysection{systick\+\_\+counter\+\_\+ Struct Reference}
+\label{structsystick__counter__}\index{systick\_counter\_@{systick\_counter\_}}
+
+
+Sys\+Tick counter structure.  
+
+
+
+
+{\ttfamily \#include $<$systick.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structsystick__counter___ae7f66047e6e39ba2bb6af8b95f00d1dd}\label{structsystick__counter___ae7f66047e6e39ba2bb6af8b95f00d1dd}} 
+uint32\+\_\+t {\bfseries value}
+\item 
+\mbox{\Hypertarget{structsystick__counter___aabbf87e7737425e658ae366e5bbc6dd8}\label{structsystick__counter___aabbf87e7737425e658ae366e5bbc6dd8}} 
+uint32\+\_\+t {\bfseries cmp}
+\item 
+\mbox{\Hypertarget{structsystick__counter___a78d632f588cacbf9b65d03d1b86bac18}\label{structsystick__counter___a78d632f588cacbf9b65d03d1b86bac18}} 
+bool {\bfseries cmp\+\_\+en}
+\item 
+\mbox{\Hypertarget{structsystick__counter___a883dc4ff7d16b4e133761e044e9aee8a}\label{structsystick__counter___a883dc4ff7d16b4e133761e044e9aee8a}} 
+void($\ast$ {\bfseries counter\+\_\+cb} )(void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sys\+Tick counter structure. 
+
+Sys\+Tick uses this structure to count ticks, if comparision is enabled, it\textquotesingle{}ll check if the count has reached the cmp value, and if it has it\textquotesingle{}ll reset the count and call the callback funtion. 
+
+Definition at line 38 of file systick.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+drivers/includes/\mbox{\hyperlink{systick_8h}{systick.\+h}}\end{DoxyCompactItemize}

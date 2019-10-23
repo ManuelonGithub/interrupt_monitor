@@ -1,0 +1,136 @@
+\hypertarget{systick_8c}{}\doxysection{drivers/systick.c File Reference}
+\label{systick_8c}\index{drivers/systick.c@{drivers/systick.c}}
+
+
+Contains all functionality of the Sys\+Tick driver.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Sys\+Tick.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{systick_8c_a966e8d2a90af97f7330c2daa037669c6}{Sys\+Tick\+\_\+\+Init}} (\mbox{\hyperlink{systick_8h_ae09db1f564b25246229753e4d125b58b}{systick\+\_\+descriptor\+\_\+t}} $\ast$descriptor)
+\begin{DoxyCompactList}\small\item\em Initializes the sys\+Tick driver \& sets up the descriptor for the driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{systick_8c_acd018ca7f595921b0c6a2928ee15bb2d}{Sys\+Tick\+\_\+\+Set\+Period}} (uint32\+\_\+t Period)
+\begin{DoxyCompactList}\small\item\em Sets the Sys\+Tick period. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{systick_8c_ad51fa075a406920a9d116e2b9ee90897}\label{systick_8c_ad51fa075a406920a9d116e2b9ee90897}} 
+void \mbox{\hyperlink{systick_8c_ad51fa075a406920a9d116e2b9ee90897}{Sys\+Tick\+\_\+\+Reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the Sys\+Tick current value register and time count. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{systick_8c_adea7c334036c7faa533940f7fb9d08fc}\label{systick_8c_adea7c334036c7faa533940f7fb9d08fc}} 
+void \mbox{\hyperlink{systick_8c_adea7c334036c7faa533940f7fb9d08fc}{Sys\+Tick\+\_\+\+Int\+Enable}} (void)
+\begin{DoxyCompactList}\small\item\em Sets the interrupt enable bit in the Sys\+Tick control register. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{systick_8c_a19412cbe5c735d9225e9926fc8ff50d3}\label{systick_8c_a19412cbe5c735d9225e9926fc8ff50d3}} 
+void \mbox{\hyperlink{systick_8c_a19412cbe5c735d9225e9926fc8ff50d3}{Sys\+Tick\+\_\+\+Int\+Disable}} (void)
+\begin{DoxyCompactList}\small\item\em Clears the interrupt enable bit in the Sys\+Tick control register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{systick_8c_ac6287940acde4194d51081a0292c23df}{Sys\+Tick\+\_\+\+Start}} (void)
+\begin{DoxyCompactList}\small\item\em Starts the Systick. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{systick_8c_a26578e89671e888e6261e14b59665b68}\label{systick_8c_a26578e89671e888e6261e14b59665b68}} 
+void \mbox{\hyperlink{systick_8c_a26578e89671e888e6261e14b59665b68}{Sys\+Tick\+\_\+\+Stop}} (void)
+\begin{DoxyCompactList}\small\item\em Stops the Sys\+Tick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{systick_8c_a51227377218c988f9d5ddaae075297b0}{Sys\+Tick\+\_\+\+Int\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Interrupt Handler for the Sys\+Tick driver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{systick_8c_a6469ef2ec4f9a74c13e392dd255fccb4}\label{systick_8c_a6469ef2ec4f9a74c13e392dd255fccb4}} 
+\mbox{\hyperlink{systick_8h_ae09db1f564b25246229753e4d125b58b}{systick\+\_\+descriptor\+\_\+t}} $\ast$ {\bfseries sys}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains all functionality of the Sys\+Tick driver. 
+
+\begin{DoxyAuthor}{Author}
+Manuel Burnay 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+09.\+26 (Created) 
+
+2019.\+10.\+04 (Last Modified) 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{systick_8c_a966e8d2a90af97f7330c2daa037669c6}\label{systick_8c_a966e8d2a90af97f7330c2daa037669c6}} 
+\index{systick.c@{systick.c}!SysTick\_Init@{SysTick\_Init}}
+\index{SysTick\_Init@{SysTick\_Init}!systick.c@{systick.c}}
+\doxysubsubsection{\texorpdfstring{SysTick\_Init()}{SysTick\_Init()}}
+{\footnotesize\ttfamily void Sys\+Tick\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{systick_8h_ae09db1f564b25246229753e4d125b58b}{systick\+\_\+descriptor\+\_\+t}} $\ast$}]{descriptor }\end{DoxyParamCaption})}
+
+
+
+Initializes the sys\+Tick driver \& sets up the descriptor for the driver. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em descriptor} & pointer to Sys\+Tick descriptor that the driver will configure with to have access to it.\\
+\hline
+\end{DoxyParams}
+The descriptor\textquotesingle{}s pointer will be saved internally into the driver module so the interrupt handler can have access to it. 
+
+Definition at line 23 of file systick.\+c.
+
+\mbox{\Hypertarget{systick_8c_a51227377218c988f9d5ddaae075297b0}\label{systick_8c_a51227377218c988f9d5ddaae075297b0}} 
+\index{systick.c@{systick.c}!SysTick\_IntHandler@{SysTick\_IntHandler}}
+\index{SysTick\_IntHandler@{SysTick\_IntHandler}!systick.c@{systick.c}}
+\doxysubsubsection{\texorpdfstring{SysTick\_IntHandler()}{SysTick\_IntHandler()}}
+{\footnotesize\ttfamily void Sys\+Tick\+\_\+\+Int\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Interrupt Handler for the Sys\+Tick driver. 
+
+This systick interrupt handler performs two functions\+:
+\begin{DoxyItemize}
+\item Increments the counter value
+\begin{DoxyItemize}
+\item If comparison is enable it\textquotesingle{}ll compare with the cmp value,
+\begin{DoxyItemize}
+\item If they are equal, it\textquotesingle{}ll reset the counter and call the callback function.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item Decrements the countdown value if enabled
+\begin{DoxyItemize}
+\item If the value is 0, it\textquotesingle{}ll disable the countdown and call the callback function.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+As this is the interrupt handler for Sys\+Tick, it needs to be known in the interrupt vector table. This is accomplished by placing an extern function prototype (extern void \mbox{\hyperlink{systick_8c_a51227377218c988f9d5ddaae075297b0}{Sys\+Tick\+\_\+\+Int\+Handler(void)}};) in the interrupt vector table file and inserting the function in the current index in the table. For the board I used, the Tiva C series 1294XL, the interrupt vector table file is tm4c1294ncpdt\+\_\+startup\+\_\+ccs.\+c. 
+
+Definition at line 111 of file systick.\+c.
+
+\mbox{\Hypertarget{systick_8c_acd018ca7f595921b0c6a2928ee15bb2d}\label{systick_8c_acd018ca7f595921b0c6a2928ee15bb2d}} 
+\index{systick.c@{systick.c}!SysTick\_SetPeriod@{SysTick\_SetPeriod}}
+\index{SysTick\_SetPeriod@{SysTick\_SetPeriod}!systick.c@{systick.c}}
+\doxysubsubsection{\texorpdfstring{SysTick\_SetPeriod()}{SysTick\_SetPeriod()}}
+{\footnotesize\ttfamily void Sys\+Tick\+\_\+\+Set\+Period (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Period }\end{DoxyParamCaption})}
+
+
+
+Sets the Sys\+Tick period. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Period} & Number of clock cycles between interrupt triggers, i.\+e. period. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file systick.\+c.
+
+\mbox{\Hypertarget{systick_8c_ac6287940acde4194d51081a0292c23df}\label{systick_8c_ac6287940acde4194d51081a0292c23df}} 
+\index{systick.c@{systick.c}!SysTick\_Start@{SysTick\_Start}}
+\index{SysTick\_Start@{SysTick\_Start}!systick.c@{systick.c}}
+\doxysubsubsection{\texorpdfstring{SysTick\_Start()}{SysTick\_Start()}}
+{\footnotesize\ttfamily void Sys\+Tick\+\_\+\+Start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Starts the Systick. 
+
+This function does not interfere with the ST C\+U\+R\+R\+E\+NT register, so the systick will count from the value already in it. 
+
+Definition at line 79 of file systick.\+c.
+

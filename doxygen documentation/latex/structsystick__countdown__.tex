@@ -1,0 +1,37 @@
+\hypertarget{structsystick__countdown__}{}\doxysection{systick\+\_\+countdown\+\_\+ Struct Reference}
+\label{structsystick__countdown__}\index{systick\_countdown\_@{systick\_countdown\_}}
+
+
+Sys\+Tick countdown structure.  
+
+
+
+
+{\ttfamily \#include $<$systick.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structsystick__countdown___ae7f66047e6e39ba2bb6af8b95f00d1dd}\label{structsystick__countdown___ae7f66047e6e39ba2bb6af8b95f00d1dd}} 
+uint32\+\_\+t {\bfseries value}
+\item 
+\mbox{\Hypertarget{structsystick__countdown___a6615bd80205b361bf6f3ffee9f537fd1}\label{structsystick__countdown___a6615bd80205b361bf6f3ffee9f537fd1}} 
+bool {\bfseries en}
+\item 
+\mbox{\Hypertarget{structsystick__countdown___a53907ec4e8d112cde7981396e8b4b0f6}\label{structsystick__countdown___a53907ec4e8d112cde7981396e8b4b0f6}} 
+void($\ast$ {\bfseries countdown\+\_\+cb} )(void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sys\+Tick countdown structure. 
+
+Sys\+Tick uses this structure to count down the value every tick, once the value reaches zero, it\textquotesingle{}ll stop the count down and call the callback function. 
+
+Definition at line 51 of file systick.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+drivers/includes/\mbox{\hyperlink{systick_8h}{systick.\+h}}\end{DoxyCompactItemize}
