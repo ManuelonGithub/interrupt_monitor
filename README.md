@@ -2,16 +2,16 @@
 
 Repository for the interrupt-driven monitor assignment for my Real Time Systems course.
 
-##Project Information
+## Project Information
   This monitor allows for the user to query certain aspects of the system in real time.
   The current supported queries are: Display/Set time, Display/Set date, Set/Clear alarm.
   This monitor uses interrupts to fetch user data and to keep track of time, making it "interrupt-driven".
 
-##Communications
+## Communications
   Monitor communicates with the user via UART,
   which can be accessed by a computer via a Serial COM port and an emulated terminal program like PuTTY.
 
-##Serial Port Settings
+## Serial Port Settings
 * 115200 baud rate,
 * 8 data bits,
 * 1 stop bit,
@@ -23,7 +23,7 @@ Check device manager (or equivalent) to see which COM port the board is connecte
 
 It is also recommended that you enable implicit CR in every LR & implicit LR in every CR on your terminal settings.
 
-##Queries
+## Queries
 All query entries are case insensitive.
 Keep in mind the format of the 'set' queries (the time seperators are different from the date seperators).
 
